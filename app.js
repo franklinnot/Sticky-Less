@@ -1,13 +1,9 @@
-/*
-
-que vendrian a ser las api en mi codigo? o sea, se que es una api pero aparentemente en mi codigo ya tengo una api pero, es de verdad una api un endpoint o algo asi?
-
-*/
 
 import express from "express";
 const app = express(); 
 
 import path from "path";
+
 // esto se hace pues se esta usando ECMASript 
 import { getGlobals } from "common-es";
 const { __dirname } = getGlobals(import.meta.url);
@@ -18,7 +14,7 @@ import ollama from "ollama";
 const port = 3000; 
 
 
-// middleware para servir archivos estáticos
+// middleware para servir archivos estaticos de la carpeta public
 app.use(express.static(path.join(__dirname, "public")));
 
 // ruta principal para servir `index.html`

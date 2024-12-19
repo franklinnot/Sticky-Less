@@ -26,9 +26,6 @@ npm i common-es
 
 
 
-# Instalación, configuración y selección del modelo:
-
-https://github.com/ollama/ollama
 
 
 
@@ -36,6 +33,9 @@ https://github.com/ollama/ollama
 # Links de documentación de referencia:
 
 https://ollama.com/blog/python-javascript-libraries
+
+-- Instalación, configuración y selección del modelo de ia
+https://github.com/ollama/ollama
 
 https://github.com/ollama/ollama-js
 
@@ -56,7 +56,11 @@ https://bobbyhadz.com/blog/javascript-dirname-is-not-defined-in-es-module-scope
 -- modulo para utilizar variables globales sin problema con ES modules
 https://www.npmjs.com/package/common-es?activeTab=readme
 
+-- como reiniciar el servidor de nodejs cada que cambia un archivo
+https://stackoverflow.com/questions/1972242/how-to-auto-reload-files-in-node-js
 
+-- documentacion del modulo nodemon
+https://github.com/remy/nodemon
 
 # Notas
 
