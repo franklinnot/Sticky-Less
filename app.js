@@ -8,12 +8,9 @@ import express from "express";
 const app = express(); 
 
 import path from "path";
-// esto se hace pues al usar ECMASript code no se tienen las variables globales
-// de __dirname y __filename
-import {fileURLToPath} from 'url';
-const __filename = fileURLToPath(import.meta.url); // path del archivo actual
-const __dirname = path.dirname(__filename); // directorio cotenedor del archivo ubicado en __filename
-
+// esto se hace pues se esta usando ECMASript 
+import { getGlobals } from "common-es";
+const { __dirname } = getGlobals(import.meta.url);
 
 import dotenv from "dotenv";
 import ollama from "ollama";

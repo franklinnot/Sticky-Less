@@ -1,5 +1,4 @@
 
-# Documentacion
 
 
 # Comandos necesarios
@@ -7,20 +6,30 @@
 -- comando para inicializar en proyecto en node
 npm init -y
 
--- comando para instalar el modulo de ollama
+-- comando(s) para ejecutar el proyecto:
+node app.js
+
+
+
+
+# Instalaciones
+
+-- modulo de ollama
 npm install ollama
 
--- comando para instalar el modulo de express js
+-- modulo de express js
 npm install express
 
--- comando(s) para ejecutar el proyecto:
-node index.js
+-- modulo de common-es
+npm i common-es
+
 
 
 
 # Instalación, configuración y selección del modelo:
 
 https://github.com/ollama/ollama
+
 
 
 
@@ -44,8 +53,12 @@ https://developers.google.com/youtube/v3/docs/search/list
 -- solucionar el error de "__dirname is not defined in ES module scope" al usar ECMAScript module files
 https://bobbyhadz.com/blog/javascript-dirname-is-not-defined-in-es-module-scope
 
-# Notas
+-- modulo para utilizar variables globales sin problema con ES modules
+https://www.npmjs.com/package/common-es?activeTab=readme
 
+
+
+# Notas
 
 - Se optara por utilizar la forma estandar de importar modulos del actual ECMAScript,
 es decir, dejar de lado la siguiente sintaxis de importacion:
