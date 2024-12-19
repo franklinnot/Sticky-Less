@@ -1,8 +1,9 @@
 {
   "name": "sticky-less",
   "version": "1.0.0",
-  "description": "-- comando para inicializar en proyecto en node\r npm init -y",
-  "main": "index.js",
+  "description": "",
+  "type": "module",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.21.2",
+    "normalize.css": "^8.0.1",
     "ollama": "^0.5.11"
   }
 }
