@@ -1,24 +1,41 @@
+/*
 
+que vendrian a ser las api en mi codigo? o sea, se que es una api pero aparentemente en mi codigo ya tengo una api pero, es de verdad una api un endpoint o algo asi?
 
-// importamos los modulos instalados con npm de la forma en que ECMAScript lo recomienda
+*/
+
 import express from "express";
+const app = express(); 
+
+import path from "path";
+// esto se hace pues al usar ECMASript code no se tienen las variables globales
+// de __dirname y __filename
+import {fileURLToPath} from 'url';
+const __filename = fileURLToPath(import.meta.url); // path del archivo actual
+const __dirname = path.dirname(__filename); // directorio cotenedor del archivo ubicado en __filename
+
+
+import dotenv from "dotenv";
 import ollama from "ollama";
 
-// express
+const port = 3000; 
 
-const port = 3000; // puerto que el servidor atendera
-// creamos una aplicacion que representara a nuestro servidor, encargado de recibir y responder peticiones
-const app = express(); // instancia del servidor
 
-// cada que el cliente (navegador del usuario) solicite un recurso
-// se le debe indicar en que URL se esta silicitando ese recurso, como 
-// va a recibir los datos de esa peticion, de donde va a obtener los datos, como los
-// va a procesar y responder
-app.get("/", (require, response) =>{ // en vez de diagonal se pueden precisar las url
-    response.send("./public/index.html");
+// middleware para servir archivos estáticos
+app.use(express.static(path.join(__dirname, "public")));
+
+// ruta principal para servir `index.html`
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "index.html"));
 });
-// lo que hace arriba es lo siguiente: cuando se reciba una solicitud de la url raiz, responder
-// con un Holip
+
+
+// endpoint para buscar videos
+app.get("/search", (req, res) =>{ 
+    console.clear();
+    console.log("buscando...");
+});
+
 
 // escuchar las peticiones de los clientes por el puerto:
 app.listen(port, () => {
@@ -26,4 +43,3 @@ app.listen(port, () => {
 
 });
 
-// codigo necesario para responder a peticiones
