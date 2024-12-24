@@ -1,38 +1,63 @@
 
 import express from "express";
+import path from "path";
+import helmet from "helmet";
+import dotenv from "dotenv";
+import cors from "cors";
+
+dotenv.config();
+const port = process.env.PORT || 3000; 
+
 const app = express(); 
 
-import path from "path";
+// middlewares de seguridad y configuracion
+app.use(helmet());
+app.use(cors());
+app.use(cors({
+    origin: "htpp://localhost:3000" // unico dominio de origen permitido, por ahora claro
+}));
 
-// esto se hace pues se esta usando ECMASript 
-import { getGlobals } from "common-es";
-const { __dirname } = getGlobals(import.meta.url);
-
-import dotenv from "dotenv";
-import ollama from "ollama";
-
-const port = 3000; 
-
+// middelwares de procesamiento de solicitudes
+app.use(express.json());
+app.use(express.text());
 
 // middleware para servir archivos estaticos de la carpeta public
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(process.cwd(), "public"))); 
 
-// ruta principal para servir `index.html`
-app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "public", "index.html"));
+// middleware de registro de solicitudes
+app.use((req, res, next) => {
+    console.log(`Solicitud: ${req.method} ${req.url}`);
+    next(); // pasa al siguiente middleware
 });
 
 
-// endpoint para buscar videos
-app.get("/search", (req, res) =>{ 
-    console.clear();
-    console.log("buscando...");
+// RUTAS
+
+// busqueda de videos
+import searchRoutes from "./src/routes/search.js";
+app.use("/api/search", searchRoutes);
+
+
+
+// MANEJO DE ERRORES
+
+app.use((req, res) => {
+    res.status(404).send(`Página no encontrada: ${req.method} ${req.url}`);
+});
+
+// Error generico -- para todos los casos no manejados anteriormente
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send("Algo salio mal...");
 });
 
 
-// escuchar las peticiones de los clientes por el puerto:
+// Iniciar servidor
 app.listen(port, () => {
     console.log(`El servidor se encuentra activo en http://localhost:${port}`);
-
 });
+
+
+
+
 

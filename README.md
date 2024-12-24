@@ -1,5 +1,8 @@
 
 
+# Modelos de ia a utilizar:
+search-validator
+
 
 # Comandos necesarios
 
@@ -23,12 +26,20 @@ npm install express
 -- modulo de common-es
 npm i common-es
 
+-- modulo de helmet
+npm i helmet
 
+-- modulo de cors para controlar el dominio de las solicitudes
+npm i cors
 
+-- modulo de zod
+npm install zod
 
+-- modulo de zod-to-json-schema
+npm i zod-to-json-schema
 
-
-
+-- modulo de node-fetch
+npm i node-fetch
 
 # Links de documentación de referencia:
 
@@ -61,6 +72,20 @@ https://stackoverflow.com/questions/1972242/how-to-auto-reload-files-in-node-js
 
 -- documentacion del modulo nodemon
 https://github.com/remy/nodemon
+
+-- como ejecutar scripts del package.json
+https://stackoverflow.com/questions/42312527/how-to-run-start-scripts-from-package-json
+
+-- rutas y middlewares
+https://youtu.be/j5UBvJhLA-k
+
+-- modelos sin censura
+https://erichartford.com/uncensored-models
+https://semianalysis.com/2023/05/04/google-we-have-no-moat-and-neither/
+
+-- crear modelo personalizado
+https://www.arsturn.com/blog/creating-custom-models-in-ollama
+https://ollama.com/blog/structured-outputs
 
 # Notas
 

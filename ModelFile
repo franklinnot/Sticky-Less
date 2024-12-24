@@ -1,0 +1,7 @@
+FROM llama3.2
+
+PARAMETER temperature 0
+PARAMETER num_ctx 1024
+
+SYSTEM "You are an educational validation model. Your task is to determine whether the user's query is valid. Answer only with true or false."
+ 
