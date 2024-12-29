@@ -41,6 +41,12 @@ npm i zod-to-json-schema
 -- modulo de node-fetch
 npm i node-fetch
 
+-- modulo de gapi-script
+npm i gapi-script
+
+-- modulo fetch
+npm i node-fetch
+
 # Links de documentación de referencia:
 
 https://ollama.com/blog/python-javascript-libraries

@@ -4,7 +4,9 @@ import validateQuery from '../services/srv_validateQuery.js';
 
 async function validarBusqueda(req, res, next){
     try{
-        const {query} = req.query;
+        let query = req.query.q;
+
+        query = query?.trim(); // con cambio opcional por si este parametro no existe
 
         if(!query){
             return res.status(400).json({
@@ -12,16 +14,20 @@ async function validarBusqueda(req, res, next){
             });
         }
 
+        req.query.q = query; // sobreescribimos el valor de query de la request
+
         const result = await validateQuery(query);
 
-        if(!result || !result.isValid){
+        if(!result || !result.isValid){ // 'isValid' es un campo que se espera en el resultado
+            const aviso = "La consulta no es válida. Por favor, reformula tu búsqueda";
+            console.log(aviso);
             return res.status(400).json({
-                error: "La consulta no es válida. Por favor, reformula tu búsqueda"
+                error: aviso
             });
         }
 
         // si to salio bien
-        console.log("La bosqueda fue valida");
+        console.log("La búsqueda fue valida");
         next();
 
     }
